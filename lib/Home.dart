@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:async';
 import 'dart:convert';
 
 class Home extends StatefulWidget {
@@ -14,7 +13,7 @@ class _HomeState extends State<Home> {
 
   void _recuperarPreco() async {
       String url = "https://blockchain.info/ticker";
-      http.Response response = await http.get(url);
+      http.Response response = await http.get(Uri.parse(url));
       Map<String,dynamic> retorno = json.decode( response.body);
 
       setState(() {
